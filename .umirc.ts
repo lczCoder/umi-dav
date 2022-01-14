@@ -8,7 +8,12 @@ export default defineConfig({
     {
       path: '/',
       component: '@/pages/index',
-      routes: [{ path: '/user', component: '@/pages/user', title: '用户页面' }],
+      title: '首页',
+    },
+    {
+      path: '/user',
+      component: '@/pages/user',
+      title: '用户界面',
     },
   ],
   fastRefresh: {},
