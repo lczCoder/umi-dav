@@ -84,33 +84,6 @@ var _default = {
       return _objectSpread({}, state);
     },
   },
-  effects: {
-    getList:
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function getList(_ref3, _ref4) {
-        var payload, call, put, res;
-        return regeneratorRuntime.wrap(function getList$(_context) {
-          while (1) {
-            switch ((_context.prev = _context.next)) {
-              case 0:
-                payload = _ref3.payload;
-                (call = _ref4.call), (put = _ref4.put);
-                _context.next = 4;
-                return call(
-                  _axios['default'].get('http://192.168.3.197:3000/books', {}),
-                );
-
-              case 4:
-                res = _context.sent;
-                console.log('res', res);
-
-              case 6:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, getList);
-      }),
-  },
+  effects: {},
 };
 exports['default'] = _default;

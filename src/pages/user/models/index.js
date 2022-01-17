@@ -22,10 +22,5 @@ export default {
       return { ...state };
     },
   },
-  effects: {
-    *getList({ payload }, { call, put }) {
-      const res = yield call(axios.get('http://192.168.3.197:3000/books', {}));
-      console.log('res', res);
-    },
-  },
+  effects: {},
 };
