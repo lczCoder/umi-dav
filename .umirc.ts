@@ -7,7 +7,7 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      component: '@/pages/index',
+      component: '@/pages/Home/index',
       title: '首页',
     },
   ],
