@@ -13,12 +13,3 @@ export default class User extends React.Component {
     return <h3>User视图</h3>;
   }
 }
-
-// const User = (props)=> {
-//   console.log('props', props);
-//   return <h3>User视图</h3>;
-// }
-
-// export default connect(({ user }) => ({
-//   ...user,
-// }))(User);

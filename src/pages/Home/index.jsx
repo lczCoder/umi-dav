@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'dva';
-import User from '../User';
-
+import Upload from '../upload';
 const IndexPage = (props) => {
   return (
     <div>
       <h1>首页</h1>
-      <User />
+      <Upload></Upload>
     </div>
   );
 };
