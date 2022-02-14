@@ -12,7 +12,7 @@ var delay = function delay(ms) {
 };
 
 var _default = {
-  namespace: 'count',
+  namespace: 'user',
   state: {
     count: 1,
   },
