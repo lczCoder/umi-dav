@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'dva';
 import Upload from '../upload';
+import User from '../user';
 import CSI from 'csijs';
 const IndexPage = (props) => {
   const csi = new CSI({
@@ -16,7 +17,8 @@ const IndexPage = (props) => {
   return (
     <div>
       <h1>首页</h1>
-      <Upload></Upload>
+      {/* <Upload></Upload> */}
+      <User></User>
     </div>
   );
 };

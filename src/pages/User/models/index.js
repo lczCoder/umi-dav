@@ -9,8 +9,5 @@ export default {
       return { ...state, ...payload };
     },
   },
-
-  subscriptions: {
-    setup({ dispatch, history }) {},
-  },
+  effects: {},
 };
