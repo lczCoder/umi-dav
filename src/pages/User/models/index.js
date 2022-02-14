@@ -1,13 +1,19 @@
+const delay = (ms) => new Promise((r) => setTimeout(r, ms));
+
 export default {
-  namespace: 'user',
+  namespace: 'count',
   state: {
-    name: 'lcz',
-    age: 24,
+    count: 1,
   },
-  reducers: {
-    setState(state, { payload }) {
-      return { ...state, ...payload };
+  effects: {
+    *add(action, { put, call }) {
+      yield call(delay, 1000);
+      yield put({ type: 'change', payload: Math.random() });
     },
   },
-  effects: {},
+  reducers: {
+    change(state, { payload }) {
+      return { count: state.count + payload };
+    },
+  },
 };

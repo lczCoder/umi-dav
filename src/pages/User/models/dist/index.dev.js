@@ -5,67 +5,52 @@ Object.defineProperty(exports, '__esModule', {
 });
 exports['default'] = void 0;
 
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly)
-      symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-    keys.push.apply(keys, symbols);
-  }
-  return keys;
-}
-
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-    if (i % 2) {
-      ownKeys(source, true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(source).forEach(function (key) {
-        Object.defineProperty(
-          target,
-          key,
-          Object.getOwnPropertyDescriptor(source, key),
-        );
-      });
-    }
-  }
-  return target;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true,
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
+var delay = function delay(ms) {
+  return new Promise(function (r) {
+    return setTimeout(r, ms);
+  });
+};
 
 var _default = {
-  namespace: 'user',
+  namespace: 'count',
   state: {
-    name: 'lcz',
-    age: 24,
+    count: 1,
+  },
+  effects: {
+    add:
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function add(action, _ref) {
+        var put, call;
+        return regeneratorRuntime.wrap(function add$(_context) {
+          while (1) {
+            switch ((_context.prev = _context.next)) {
+              case 0:
+                (put = _ref.put), (call = _ref.call);
+                _context.next = 3;
+                return call(delay, 1000);
+
+              case 3:
+                _context.next = 5;
+                return put({
+                  type: 'change',
+                  payload: Math.random(),
+                });
+
+              case 5:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, add);
+      }),
   },
   reducers: {
-    setState: function setState(state, _ref) {
-      var payload = _ref.payload;
-      return _objectSpread({}, state, {}, payload);
+    change: function change(state, _ref2) {
+      var payload = _ref2.payload;
+      return {
+        count: state.count + payload,
+      };
     },
   },
-  effects: {},
 };
 exports['default'] = _default;
