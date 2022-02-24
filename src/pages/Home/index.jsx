@@ -18,7 +18,7 @@ const IndexPage = (props) => {
     <div>
       <h1>首页</h1>
       {/* <Upload></Upload> */}
-      <User></User>
+      {/* <User></User> */}
     </div>
   );
 };
