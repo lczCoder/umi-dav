@@ -19,12 +19,21 @@ const Index = () => {
   });
 
   const [items, setItems] = useState([
-    { id: 'item-0', content: 'hello' },
-    { id: 'item-1', content: 'I' },
-    { id: 'item-2', content: 'am' },
-    { id: 'item-3', content: '卡' },
-    { id: 'item-4', content: '特' },
-    { id: 'item-5', content: '洛' },
+    { id: '1', content: '自' },
+    { id: '2', content: '定' },
+    { id: '3', content: '义' },
+    { id: '4', content: '菜' },
+    { id: '5', content: '单' },
+    { id: '6', content: '栏' },
+  ]);
+
+  const [items1, setItems1] = useState([
+    { id: '1', content: '自' },
+    { id: '2', content: '定' },
+    { id: '3', content: '义' },
+    { id: '4', content: '菜' },
+    { id: '5', content: '单' },
+    { id: '6', content: '栏' },
   ]);
 
   const reOrder = (startIndex, endIndex) => {
@@ -38,14 +47,20 @@ const Index = () => {
     if (!result.destination) {
       return;
     }
-
     const items = reOrder(result.source.index, result.destination.index);
     setItems(items);
+    const items1 = reOrder(result.source.index, result.destination.index);
+    setItems1(items1);
   };
 
+  const onDragEnd1 = (result) => {
+    if (!result.destination) {
+      return;
+    }
+  };
   return (
     <>
-      <div className="App">
+      <div className="App" style={{ border: '1px solid black', width: '50%' }}>
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="droppable" direction="horizontal">
             {(provided, snapshot) => (
@@ -55,6 +70,34 @@ const Index = () => {
                 {...provided.droppableProps}
               >
                 {items.map((item, index) => (
+                  <Draggable key={item.id} draggableId={item.id} index={index}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(
+                          snapshot.isDragging,
+                          provided.draggableProps.style,
+                        )}
+                      >
+                        {item.content}
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+          <Droppable droppableId="droppable" direction="horizontal">
+            {(provided, snapshot) => (
+              <div
+                ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
+                {...provided.droppableProps}
+              >
+                {items1.map((item, index) => (
                   <Draggable key={item.id} draggableId={item.id} index={index}>
                     {(provided, snapshot) => (
                       <div
