@@ -27,15 +27,6 @@ const Index = () => {
     { id: '6', content: '栏' },
   ]);
 
-  const [items1, setItems1] = useState([
-    { id: '1', content: '自' },
-    { id: '2', content: '定' },
-    { id: '3', content: '义' },
-    { id: '4', content: '菜' },
-    { id: '5', content: '单' },
-    { id: '6', content: '栏' },
-  ]);
-
   const reOrder = (startIndex, endIndex) => {
     const result = items;
     const [removed] = result.splice(startIndex, 1);
@@ -49,8 +40,6 @@ const Index = () => {
     }
     const items = reOrder(result.source.index, result.destination.index);
     setItems(items);
-    const items1 = reOrder(result.source.index, result.destination.index);
-    setItems1(items1);
   };
 
   const onDragEnd1 = (result) => {
@@ -70,34 +59,6 @@ const Index = () => {
                 {...provided.droppableProps}
               >
                 {items.map((item, index) => (
-                  <Draggable key={item.id} draggableId={item.id} index={index}>
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style,
-                        )}
-                      >
-                        {item.content}
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-          <Droppable droppableId="droppable" direction="horizontal">
-            {(provided, snapshot) => (
-              <div
-                ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
-                {...provided.droppableProps}
-              >
-                {items1.map((item, index) => (
                   <Draggable key={item.id} draggableId={item.id} index={index}>
                     {(provided, snapshot) => (
                       <div

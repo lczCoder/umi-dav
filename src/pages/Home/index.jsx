@@ -4,6 +4,7 @@ import Upload from '../upload';
 import User from '../user';
 import CSI from 'csijs';
 import Demo from '../Demo';
+import Dnd from '../Dnd';
 const IndexPage = (props) => {
   const csi = new CSI({
     feID: 'umi', // 项目id，日志区分项目使用
@@ -20,7 +21,8 @@ const IndexPage = (props) => {
       <h1>首页</h1>
       {/* <Upload></Upload> */}
       {/* <User></User> */}
-      <Demo />
+      {/* <Demo /> */}
+      <Dnd />
     </div>
   );
 };
