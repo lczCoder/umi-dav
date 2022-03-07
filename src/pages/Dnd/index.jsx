@@ -7,8 +7,10 @@ const Index = () => {
   const dragEnd = (result) => {
     console.log('e', result);
     const sourceIndex = result.source.index; // 起始位置
-    const destinationIndex = result.destination.index; // 结束位置
-    if (sourceIndex === destinationIndex) {
+    const destinationIndex = result.destination
+      ? result.destination.index
+      : null; // 结束位置
+    if (sourceIndex === destinationIndex || !destinationIndex) {
       return;
     }
     const listDeep = _.cloneDeep(list);
@@ -28,7 +30,7 @@ const Index = () => {
   return (
     <DragDropContext onDragEnd={(e) => dragEnd(e)}>
       <div className={style.warp}>
-        <Droppable droppableId="box" direction="horizontal">
+        <Droppable droppableId="box">
           {(provided) => (
             <div
               className={style.box}
