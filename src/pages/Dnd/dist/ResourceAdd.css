@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+}
+.root .title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #fff;
+}
+.root .titleChild {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #fff;
+  font-size: 18px;
+}

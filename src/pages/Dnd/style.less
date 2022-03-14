@@ -1,18 +1,31 @@
 .warp {
-  width: 200px;
-  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 1000px;
+  height: 500px;
   border: 5px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
   .box {
     border: 1px solid red;
-    width: 50px;
-    height: 200px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .item {
-      border: 1px solid green;
-      width: 20px;
+      border: 1px solid black;
+      width: 90%;
       height: 20px;
       margin: 10px 0;
+      text-align: center;
     }
   }
 }
